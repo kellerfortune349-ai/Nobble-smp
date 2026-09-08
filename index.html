@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SMP Tiers — Rankings</title>
+  <meta name="description" content="Minecraft SMP community tier rankings">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="SMP Tiers home">
+      <span class="brand-mark">SMP</span><span class="brand-name">TIERS</span>
+    </a>
+    <nav>
+      <a class="nav-active" href="#rankings">⌂ <span>Home</span></a>
+      <a href="#rankings">🏆 <span>Rankings</span></a>
+      <a href="#discord">🎮 <span>Discord</span></a>
+      <a href="#about">▱ <span>About</span></a>
+    </nav>
+    <div class="search-wrap">
+      <span>⌕</span>
+      <input id="search" placeholder="Search player..." autocomplete="off">
+      <kbd>/</kbd>
+    </div>
+  </header>
+
+  <main id="rankings">
+    <section class="category-scroller">
+      <button class="cat active" data-cat="overall">🏆<span>Overall</span></button>
+      <button class="cat" data-cat="sword">⚔<span>Sword</span></button>
+      <button class="cat" data-cat="axe">🪓<span>Axe</span></button>
+      <button class="cat" data-cat="mace">🔨<span>Mace</span></button>
+      <button class="cat" data-cat="uhc">♥<span>UHC</span></button>
+      <button class="cat" data-cat="pot">⚗<span>Pot</span></button>
+      <button class="cat" data-cat="nethop">✹<span>NethOP</span></button>
+      <button class="cat" data-cat="smp">◉<span>SMP</span></button>
+      <button class="cat" data-cat="vanilla">⬡<span>Vanilla</span></button>
+    </section>
+
+    <section class="hero-row">
+      <div>
+        <h1 id="page-title">Overall Rankings</h1>
+        <p>Community tier list for the SMP.</p>
+      </div>
+      <button class="primary" id="admin-open">＋ Get Tier Tested</button>
+    </section>
+
+    <section class="info">
+      <span>●</span>
+      <strong>Information</strong>
+      <span class="server-label">SERVER IP</span>
+      <code id="server-ip">play.your-smp.net</code>
+      <button class="copy" id="copy-ip" title="Copy server IP">▣</button>
+    </section>
+
+    <div class="table-head">
+      <span>#</span><span>PLAYER</span><span>REGION</span><span>TIERS</span>
+    </div>
+    <section id="players" class="players"></section>
+    <div id="empty" class="empty">
+      <div class="empty-icon">◇</div>
+      <h2>No tier-tested players yet</h2>
+      <p>Use the admin panel to add the first player.</p>
+      <button class="primary" id="empty-admin">Add first player</button>
+    </div>
+  </main>
+
+  <footer id="about">
+    <span>© <span id="year"></span> SMP Tiers</span>
+    <span>Built for your Minecraft SMP</span>
+  </footer>
+
+  <div class="modal-backdrop" id="modal">
+    <div class="modal">
+      <button class="close" id="close">×</button>
+      <h2>Tier Test Entry</h2>
+      <p class="muted">Add or update a player and choose their tier for each gamemode.</p>
+
+      <label>Player name<input id="p-name" placeholder="e.g. Steve"></label>
+      <div class="form-grid">
+        <label>Region
+          <select id="p-region">
+            <option>NA</option><option>EU</option><option>AS</option><option>AU</option><option>ME</option><option>AF</option><option>SA</option>
+          </select>
+        </label>
+        <label>Skin URL <input id="p-skin" placeholder="Optional image URL"></label>
+      </div>
+
+      <div class="tier-grid" id="tier-form"></div>
+
+      <div class="modal-actions">
+        <button class="secondary" id="cancel">Cancel</button>
+        <button class="primary" id="save">Save tier test</button>
+      </div>
+      <p class="tiny">This starter version stores data in this browser with localStorage. A free shared database can be connected later.</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
